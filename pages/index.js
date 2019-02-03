@@ -1,5 +1,6 @@
 import fetch from "isomorphic-fetch";
 import Error from "next/error";
+import Layout from "../components/Layout";
 import StoryList from "../components/StoryList";
 const URL = "https://node-hnapi.herokuapp.com/news?page=1";
 
@@ -19,10 +20,12 @@ export default class Index extends React.Component {
     const { stories } = this.props;
     if (!stories.length) return <Error statusCode="503" />;
     return (
-      <div>
-        <h1>Hacker Next</h1>
+      <Layout
+        title="Hacker Next"
+        description="A hacker news clone with Next.js"
+      >
         <StoryList stories={stories} />
-      </div>
+      </Layout>
     );
   }
 }
