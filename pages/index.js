@@ -21,6 +21,20 @@ export default class Index extends React.Component {
     }
     return { stories, page };
   }
+
+  componentDidMount() {
+    if ("serviceWorker" in window.navigator) {
+      window.navigator.serviceWorker
+        .register("/service-woeker.js")
+        .then(registration =>
+          console.warn("service worker registration success", registration)
+        )
+        .catch(err =>
+          console.warn("service worker registration fail", err.message)
+        );
+    }
+  }
+
   render() {
     const { stories, page } = this.props;
     if (!stories.length) return <Error statusCode="503" />;
