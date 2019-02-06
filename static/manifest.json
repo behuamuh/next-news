@@ -1,7 +1,7 @@
 {
   "name": "Hacker Next",
   "short_name": "hacker-next",
-  "lang": "ru-RU",
+  "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#f60",
